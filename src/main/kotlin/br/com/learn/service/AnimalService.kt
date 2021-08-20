@@ -4,11 +4,8 @@ import br.com.learn.model.Animals
 
 class AnimalService {
     fun createAnimal() {
-        var animal = Animals()
-        animal.setBehavior("Late")
-        animal.setAge(2)
-        animal.setName("Charlie")
-        animal.setBreed("Cachorro")
+        var animal = Animals("Late",
+            2,"Charlie","Cachorro")
         println(animal)
     }
 }
