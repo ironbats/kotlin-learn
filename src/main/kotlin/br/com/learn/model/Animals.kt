@@ -1,6 +1,8 @@
 package br.com.learn.model
 
-open class Animals() {
+import br.com.learn.interfaces.AnimalServiceInterface
+
+open  class Animals() : AnimalServiceInterface {
 
     private var behavior =""
     private var age = 0
@@ -19,6 +21,12 @@ open class Animals() {
     open fun thisAnimalWillFightYou(): Boolean {
         return false
     }
+
+    override fun registerAnimal(any: Any?) {}
+    override fun getImmutableAnimals(): ArrayList<Any> {
+     return java.util.ArrayList()
+    }
+
     override fun toString(): String {
         return "Behavior: " + this.behavior + " Age: " + this.age + " Name: " + this.name + " Breed: $breed"
     }
