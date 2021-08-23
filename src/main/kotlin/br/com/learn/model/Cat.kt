@@ -1,5 +1,6 @@
 package br.com.learn.model
 
+import br.com.learn.utils.AnimalsType
 import kotlin.collections.ArrayList
 
 open class Cat constructor() : Animals() {
@@ -7,8 +8,10 @@ open class Cat constructor() : Animals() {
     private val priceOfThisAnimal: Double = 200.0
     private var icmsAnimal: Double = 0.12
     private var listCat : ArrayList<Any?> = ArrayList()
+    private var animalType : AnimalsType = AnimalsType.UNKNOWN
 
-    constructor(behavior: String, age: Int, name: String, breed: String) : this() {
+    constructor(behavior: String, age: Int, name: String, breed: String,animalsType: AnimalsType) : this() {
+        this.animalType = animalsType
         Animals(behavior, age, name, breed)
     }
 
@@ -45,6 +48,20 @@ open class Cat constructor() : Animals() {
             throw RuntimeException("Nao existe nenhum gato salvo !!")
         }
         return this.listCat.toMutableList() as ArrayList<Any>
+    }
+
+    fun getAnimalType(): AnimalsType {
+        return this.animalType
+    }
+
+    fun isACat(animalType:AnimalsType) : Boolean {
+        if(animalType == null){
+            throw  RuntimeException("Type of animal not selected !")
+        }
+        if(animalType == AnimalsType.CAT){
+            return true
+        }
+        return false
     }
 
 }
